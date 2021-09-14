@@ -1,0 +1,12 @@
+@import "custom";
+
+// IMPORT THE COMPONENTS
+@import "components/mixins";
+@import "components/typography";
+
+//IMPORT THE SECTIONS
+
+@import "sections/container";
+@import "sections/navbar";
+@import "sections/main";
+@import "sections/trend";

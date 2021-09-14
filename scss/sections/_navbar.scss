@@ -1,0 +1,244 @@
+.navbar {
+  display: flex;
+  font-size: 15px;
+
+  // sidebar-menu
+  .sidebar-menu {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+    //logo
+    .logo {
+      width: 50px;
+      height: 30px;
+      padding: 1rem;
+      margin-left: 1.6rem;
+    }
+
+    .menu-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      // font-size: 15px;
+      filter: $icon-filter-color;
+    }
+
+    &__items {
+      display: flex;
+      flex-direction: column;
+      margin: 1.5rem 0 0.4rem;
+
+      .sidebar-menu__item {
+        display: flex;
+        padding: 0;
+        list-style-type: none;
+
+        @include laptop-large-minMax(min) {
+          margin-bottom: 0.3rem;
+        }
+
+        .sidebar-menu__link {
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          padding: 0.6rem 0.2rem 0.6rem 0.6rem;
+          font-size: $menu-font;
+          font-weight: 400;
+          color: $text-color;
+          line-height: 24px;
+          text-transform: capitalize;
+
+          // @include laptop-large-minMax(max) {
+          //   font-size: 15px;
+          // }
+
+          span {
+            margin: 0 16px;
+          }
+        }
+        .sidebar-menu__link:hover {
+          @include hover-effect;
+        }
+
+        .sidebar-menu__link:active {
+          background: $text-color-hover;
+          font-weight: 700;
+        }
+
+        .notifications {
+          position: relative;
+        }
+
+        .unread-notifs {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: $primary-btn-color;
+          color: $white;
+          font-size: 11px;
+          font-weight: 400;
+          min-width: 16px;
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          left: 5px;
+          top: 6px;
+          position: absolute;
+        }
+      }
+    }
+    button {
+      margin-left: 2.5rem;
+    }
+
+    button:hover {
+      background-color: $primary-btn-hover-color;
+    }
+
+    .profile-info {
+      display: flex;
+      justify-content: center;
+      cursor: pointer;
+      padding: 0.7rem 1rem 0.5rem 0.8rem;
+      margin-top: 4.5rem;
+      margin-left: 2rem;
+      position: absolute;
+      bottom: 0.5rem;
+
+      &__avatar {
+        padding-right: 1rem;
+      }
+
+      &__avatar .avatar {
+        width: 2.5rem;
+        height: 2.5rem;
+        // border: 1px solid $primary-background;
+        border-radius: 50%;
+      }
+
+      &__name-id {
+        display: flex;
+        flex-direction: column;
+
+        .profile-name {
+          text-transform: capitalize;
+          font-size: 15px;
+          font-weight: 700;
+        }
+
+        .profile-id {
+          color: $text-color-gray;
+        }
+      }
+
+      .sidebar-menu__title {
+        align-self: center;
+      }
+
+      &__more {
+        padding-left: 1rem;
+
+        img {
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+
+    .profile-info:hover {
+      @include hover-effect;
+    }
+  }
+
+  // @include mobile-minMax(max) {
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: 0;
+  // }
+
+  @include laptop-large-minMax(min) {
+    .tweet-btn__sm {
+      display: none;
+    }
+  }
+
+  @include laptop-large-minMax(max) {
+    justify-content: flex-end;
+    padding-right: 0.5rem;
+
+    .sidebar-menu__title {
+      display: none;
+    }
+
+    .btn-large {
+      display: none;
+    }
+
+    .tweet-btn__sm {
+      background-color: $primary-btn-color;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 50px;
+      border: none;
+      border-radius: 50%;
+
+      img {
+        width: 24px;
+        height: 24px;
+        filter: invert(94%) sepia(95%) saturate(0%) hue-rotate(151deg)
+          brightness(112%) contrast(100%);
+      }
+    }
+  }
+
+  @include mobile-minMax(max) {
+    position: relative;
+
+    .logo,
+    .tweet-btn__sm {
+      display: none;
+    }
+
+    .sidebar-menu {
+      background-color: $primary-background;
+      position: fixed;
+      bottom: 0;
+      max-height: 70px;
+      width: 100%;
+      border-top: 1px solid $border-color;
+      z-index: 1;
+
+      &__items {
+        justify-content: space-around;
+        padding-left: 0;
+        margin: 1rem 0;
+      }
+
+      .profile-info {
+        display: none;
+      }
+    }
+
+    .sidebar-menu__items {
+      flex-direction: row;
+      // position: absolute;
+      // bottom: 1rem;
+
+      .sidebar-menu__item {
+        .sidebar-menu__link {
+          padding: 0.6rem;
+        }
+      }
+
+      .bookmarks,
+      .lists,
+      .profile,
+      .more {
+        display: none;
+      }
+    }
+  }
+}

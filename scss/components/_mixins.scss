@@ -1,0 +1,94 @@
+@mixin mobile-minMax($minMax) {
+  @if ($minMax == min) {
+    @media (min-width: $small-screen) {
+      @content;
+    }
+  } @else if ($minMax == max) {
+    @media (max-width: $small-screen) {
+      @content;
+    }
+  }
+}
+
+@mixin tablet-minMax($minMax) {
+  @if ($minMax == min) {
+    @media (min-width: $tablet) {
+      @content;
+    }
+  } @else if ($minMax == max) {
+    @media (max-width: $tablet) {
+      @content;
+    }
+  }
+}
+
+@mixin tablet-pro-minMax($minMax) {
+  @if ($minMax == min) {
+    @media (min-width: $tablet-pro) {
+      @content;
+    }
+  } @else if ($minMax == max) {
+    @media (max-width: $tablet-pro) {
+      @content;
+    }
+  }
+}
+
+@mixin laptop-minMax($minMax) {
+  @if ($minMax == min) {
+    @media (min-width: $laptop) {
+      @content;
+    }
+  } @else if ($minMax == max) {
+    @media (max-width: $laptop) {
+      @content;
+    }
+  }
+}
+
+@mixin laptop-large-minMax($minMax) {
+  @if ($minMax == min) {
+    @media (min-width: $laptop-large) {
+      @content;
+    }
+  } @else if ($minMax == max) {
+    @media (max-width: $laptop-large) {
+      @content;
+    }
+  }
+}
+
+@mixin hover-effect {
+  background: $text-color-hover;
+  border-radius: 50px;
+}
+
+// @mixin tablet {
+//   @media (max-width: $tablet) {
+//     @content;
+//   }
+// }
+
+// @mixin tablet-pro {
+//   @media (max-width: $tablet-pro) {
+//     @content;
+//   }
+// }
+
+// @mixin laptop {
+//   @media (min-width: $laptop) {
+//     @content;
+//   }
+// }
+
+// @mixin between-l-xl {
+//   @media (max-width: $laptop-large) {
+//     @content;
+//   }
+// }
+
+// @mixin laptop-large {
+//   @media (min-width: $laptop-large) {
+//     @content;
+//   }
+// }

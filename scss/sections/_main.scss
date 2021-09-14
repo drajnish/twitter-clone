@@ -1,0 +1,573 @@
+.main {
+  grid-area: main;
+  // position: relative;
+  // height: 100vh;
+
+  &__container {
+    border-left: 1px solid $border-color;
+    border-right: 1px solid $border-color;
+    position: relative;
+  }
+
+  &__header {
+    height: 60px;
+    position: sticky;
+    top: 0rem;
+    width: 100%;
+    padding: 0 0.1rem;
+    margin-bottom: 0.5rem;
+    z-index: 1;
+    // overflow: hidden;
+
+    .main__header-fixed {
+      background-color: $primary-background;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      // position: sticky;
+      // top: 0;
+      width: 100%;
+      height: 60px;
+      padding: 0.8rem;
+      font-size: 15px;
+      font-weight: 700;
+      border-bottom: 1px solid $border-color;
+      z-index: 1;
+
+      .title-profile {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-basis: 80%;
+        height: 100%;
+        text-align: left;
+        cursor: pointer;
+
+        .main__title {
+          font-size: 20px;
+          text-transform: capitalize;
+
+          @include mobile-minMax(max) {
+            font-size: 17px;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  &__avatar-mobile {
+    width: 30px;
+    height: 30px;
+    margin-right: 1.5rem;
+
+    @include mobile-minMax(min) {
+      display: none;
+    }
+
+    .avatar-mobile {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+  }
+
+  .top-tweets-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 34px;
+    height: 34px;
+    position: relative;
+    border-radius: 50%;
+
+    .top-tweets {
+      width: 20px;
+      height: 20px;
+      filter: invert(100%) sepia(40%) saturate(245%) hue-rotate(168deg)
+        brightness(100%) contrast(92%);
+      cursor: pointer;
+    }
+  }
+
+  .top-tweets-img:hover {
+    background-color: $text-color-hover;
+  }
+
+  .top-tweets-img:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  // main tweet section starts
+  &__tweet {
+    padding: 0 1rem;
+    border-bottom: 1px solid $border-color;
+
+    &-container {
+      display: flex;
+      // align-items: center;
+
+      .main__tweet-section {
+        display: flex;
+        flex-direction: column;
+        margin-left: 0.5rem;
+        align-items: center;
+        flex-basis: 100%;
+
+        .whats-happening {
+          width: 100%;
+          padding: 1rem 0.5rem;
+
+          input {
+            background-color: $primary-background;
+            width: 80%;
+            color: $white;
+            font-size: 20px;
+            line-height: 24px;
+            border: 1px solid $primary-background;
+            padding: 0;
+            outline: 1px solid $primary-background;
+          }
+        }
+
+        .reply-setting {
+          width: 100%;
+          color: $primary-btn-color;
+          padding: 0 0.4rem 0.8rem;
+          border-bottom: 1px solid $border-color;
+          // visibility: hidden;
+          // opacity: 0;
+
+          .reply-hover {
+            display: inline-flex;
+            align-items: center;
+            font-size: 14px;
+            min-width: 24px;
+            min-height: 24px;
+            padding: 0.1rem 0.5rem 0.2rem;
+            cursor: pointer;
+            border-radius: 1rem;
+          }
+
+          .reply-hover:hover {
+            background-color: rgba(12, 9, 26, 1);
+          }
+
+          &__globe {
+            width: 16px;
+            height: 16px;
+            filter: invert(45%) sepia(75%) saturate(5486%) hue-rotate(237deg)
+              brightness(101%) contrast(101%);
+          }
+
+          &__text {
+            margin-left: 0.3rem;
+          }
+        }
+        // reply setting end
+        .options-container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          padding: 1rem 0;
+
+          .options-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // min-width: 36px;
+            // min-height: 36px;
+
+            .media,
+            .gif,
+            .poll,
+            .emoji,
+            .schedule {
+              display: inline-block;
+              padding: 0.5rem 0.5rem 0.2rem;
+              margin-right: 1rem;
+              position: relative;
+              border-radius: 50%;
+            }
+
+            .media:hover,
+            .gif:hover,
+            .poll:hover,
+            .emoji:hover,
+            .schedule:hover {
+              background-color: $emoji-hover-color;
+            }
+
+            .media:hover .tooltip,
+            .gif:hover .tooltip,
+            .poll:hover .tooltip,
+            .emoji:hover .tooltip,
+            .schedule:hover .tooltip {
+              visibility: visible;
+              opacity: 1;
+            }
+
+            .option-svg {
+              width: 20px;
+              height: 20px;
+              // margin: auto 0.8rem auto 0;
+              cursor: pointer;
+              filter: invert(45%) sepia(75%) saturate(5486%) hue-rotate(237deg)
+                brightness(101%) contrast(101%);
+            }
+          }
+
+          .tweet-btn {
+            font-size: 15px;
+            line-height: 20px;
+            padding: 0.5rem 1rem;
+            border-radius: 1.5rem;
+            border: 1px solid $primary-btn-color;
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+
+  // feed section starts
+  .feed-section {
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid $border-color;
+    line-height: 20px;
+
+    .feed-container {
+      display: flex;
+      justify-content: flex-start;
+      padding: 1rem 1rem 0;
+
+      .feed__avatar-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+
+        .straight-line {
+          background-color: rgb(47, 51, 54);
+          width: 2px;
+          height: 100%;
+          margin: 0.25rem auto;
+        }
+      }
+      // feed avatar section ends
+      .feed__content-section {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 100%;
+        margin-left: 1rem;
+
+        .feed__user-info {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 0.5rem;
+          font-size: 15px;
+
+          .display-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .user-name {
+              display: flex;
+              align-items: center;
+              font-weight: 700;
+              margin-right: 0.2rem;
+              padding-right: 0.1rem;
+            }
+
+            .user-id,
+            .tweet-time {
+              padding-right: 0.2rem;
+            }
+          }
+
+          // .more-option {
+          //   width: 18px;
+          //   height: 18px;
+          //   filter: $grey-filter-color;
+          // }
+        }
+        // feed user info ends
+        .feed__text {
+          display: flex;
+          flex-direction: column;
+
+          .feed__text-content {
+            margin-bottom: 1rem;
+          }
+
+          .feed__media {
+            border: 1px solid $border-color;
+            border-radius: 1rem;
+
+            // for images
+            a {
+              display: flex;
+              flex-direction: column;
+
+              .posted-media {
+                height: 300px;
+                overflow: hidden;
+
+                .posted-image {
+                  width: 100%;
+                }
+              }
+            }
+
+            // for video
+            .player {
+              // max-width: 100%;
+              border: 0px solid rgba(0, 0, 0, 0.2);
+              height: 546px;
+              border-radius: 1rem;
+              // box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+              position: relative;
+              font-size: 0;
+              overflow: hidden;
+              cursor: pointer;
+
+              .player__video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+
+              .player__controls {
+                display: flex;
+                position: absolute;
+                left: 0.6rem;
+                bottom: 0.6rem;
+                width: 96%;
+                // transform: translateY(100%) translateY(-5px);
+                transition: all 0.3s;
+                flex-wrap: wrap;
+                opacity: 0;
+                // background: rgba(0, 0, 0, 0.1);
+
+                .progress {
+                  flex: 10;
+                  position: relative;
+                  display: flex;
+                  flex-basis: 100%;
+                  height: 2px;
+                  // transition: height 0.3s;
+                  background: $text-color-gray;
+                  // cursor: pointer;
+
+                  .progress__filled {
+                    width: 50%;
+                    background: $text-color;
+                    flex: 0;
+                    flex-basis: 0%;
+                  }
+                } // progress ends
+
+                .player__btn-group {
+                  display: flex;
+                  justify-content: space-between;
+                  margin-top: 0.3rem;
+
+                  .player__button {
+                    background: none;
+                    border: 0;
+                    line-height: 1;
+                    color: $text-color;
+                    text-align: center;
+                    outline: 0;
+                    padding: 0;
+                    cursor: pointer;
+
+                    .player-control-svg {
+                      width: 1.4rem;
+                      margin-top: 0.5rem;
+                      filter: $verified-filter-color;
+                    }
+
+                    .pause-icon {
+                      display: none;
+                    }
+                  }
+
+                  .mute,
+                  .full__screen {
+                    margin-right: 0.8rem;
+                  }
+
+                  .player__button:focus {
+                    border-color: $border-color;
+                  }
+                }
+              } // player controls ends
+
+              .player__controls > * {
+                flex: 1;
+              }
+            } // player ends
+
+            /* This css is only applied when fullscreen is active. */
+            .player:fullscreen {
+              max-width: none;
+              width: 100%;
+            }
+
+            .player:-webkit-full-screen {
+              max-width: none;
+              width: 100%;
+            }
+
+            .player:hover .player__controls {
+              opacity: 1;
+            }
+
+            // .player:hover .progress {
+            //   height: 2px;
+            // }
+
+            // video css ends
+
+            .post-about {
+              padding: 1rem 1rem 0;
+              max-width: 540.656px;
+
+              .fix-width {
+                // max-width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                color: $text-color;
+
+                @include laptop-large-minMax(min) {
+                  white-space: nowrap;
+                }
+              }
+
+              .text-wrap {
+                overflow-wrap: break-word;
+                // white-space: nowrap;
+                // text-overflow: ellipsis;
+              }
+
+              .link-tag {
+                display: flex;
+                align-items: center;
+                margin-bottom: 1rem;
+                color: $text-color-gray;
+
+                .link-svg {
+                  filter: $grey-filter-color;
+                  width: 1rem;
+                  height: 1rem;
+                  margin-right: 0.1rem;
+                }
+              }
+            }
+          }
+        }
+      }
+      // feed content section ends
+      .feed__reaction {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: $text-color-gray;
+        margin-top: 1rem;
+
+        @include tablet-minMax(min) {
+          padding-right: 4rem;
+          padding-left: 0.5rem;
+        }
+
+        .reaction-content {
+          display: flex;
+          // justify-content: space-between;
+          align-items: center;
+          width: 2.5rem;
+          cursor: pointer;
+
+          .reaction-images {
+            width: 100%;
+            padding: 0.5em;
+            margin-right: 0.2rem;
+            filter: $grey-filter-color;
+          }
+        }
+
+        .comments:hover .comments-img {
+          background-color: rgba(41, 50, 57, 0.1);
+          border-radius: 50%;
+          filter: invert(51%) sepia(25%) saturate(4764%) hue-rotate(178deg)
+            brightness(90%) contrast(89%);
+        }
+
+        .comments:hover .count {
+          color: rgb(29, 155, 240);
+        }
+
+        .retweet:hover .retweet-img {
+          background-color: rgba(7, 26, 20, 0.1);
+          border-radius: 50%;
+          filter: invert(54%) sepia(81%) saturate(2191%) hue-rotate(122deg)
+            brightness(91%) contrast(101%);
+        }
+
+        .retweet:hover .count {
+          color: rgb(0, 186, 124);
+        }
+
+        .likes:hover .likes-img {
+          background-color: rgba(32, 9, 20, 0.1);
+          border-radius: 50%;
+          filter: invert(20%) sepia(65%) saturate(5944%) hue-rotate(322deg)
+            brightness(102%) contrast(95%);
+        }
+
+        .likes:hover .count {
+          color: rgb(249, 24, 128);
+        }
+
+        .share:hover .share-img {
+          background-color: rgba(41, 50, 57, 0.1);
+          border-radius: 50%;
+          filter: invert(51%) sepia(25%) saturate(4764%) hue-rotate(178deg)
+            brightness(90%) contrast(89%);
+        }
+
+        .share:hover .count {
+          color: rgb(29, 155, 240);
+        }
+      }
+      // feed reaction ends
+    }
+    // feed container ends
+
+    .show-thread {
+      display: flex;
+      padding: 0.2rem 1rem 1rem 1.5rem;
+
+      a {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        .show-thread-text {
+          color: $primary-btn-color;
+          font-size: 15px;
+          margin-left: 1rem;
+        }
+      }
+    }
+
+    .show-thread:hover {
+      background-color: rgba(16, 16, 16, 1);
+    }
+  }
+  //  feed section ends
+}
